@@ -72,7 +72,7 @@ class Image(object):
         #self.GetInfoDeprecated()
 
     def GetInfoDeprecated(self):
-        result = win32file.DeviceIoControl(self.fd, INFO_IOCTRL_DEPRECATED, "",
+        result = win32file.DeviceIoControl(self.fd, INFO_IOCTRL_DEPRECATED, b"",
                                            1024, None)
         fmt_string = "QQl"
         offset = struct.calcsize(fmt_string)
@@ -92,7 +92,7 @@ class Image(object):
         self.runs = []
 
         result = win32file.DeviceIoControl(
-            self.fd, INFO_IOCTRL, "", 102400, None)
+            self.fd, INFO_IOCTRL, b"", 102400, None)
 
         fmt_string = "Q" * len(self.FIELDS)
         self.memory_parameters = dict(zip(self.FIELDS, struct.unpack_from(
