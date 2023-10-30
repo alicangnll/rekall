@@ -53,10 +53,9 @@ def CTL_CODE(DeviceType, Function, Method, Access):
 
 
 # IOCTLS for interacting with the driver.
-CTRL_IOCTRL = CTL_CODE(0x22, 0x101, 0, 3)
-INFO_IOCTRL = CTL_CODE(0x22, 0x103, 0, 3)
-INFO_IOCTRL_DEPRECATED = CTL_CODE(0x22, 0x100, 0, 3)
-
+CTRL_IOCTRL = CTL_CODE(0x22, 0x101, 3, 3)
+INFO_IOCTRL = CTL_CODE(0x22, 0x103, 3, 3)
+INFO_IOCTRL_DEPRECATED = CTL_CODE(0x22, 0x100, 3, 3)
 
 class Image(object):
     """This class abstracts the image."""
